@@ -37,8 +37,8 @@ public class Valuta {
 	}
 	
 	public void setDatum(GregorianCalendar datum) {
-		if (datum == null) {
-			throw new RuntimeException("Greska! Datum ne sme biti null!");
+		if ( (datum == null) || (datum.after(new GregorianCalendar())) ) {
+			throw new RuntimeException("Greska! Datum ne sme biti null i datum ne moze biti posle sadasnjeg trenutka!");
 		}
 		this.datum = datum;
 	}
